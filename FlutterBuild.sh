@@ -12,12 +12,20 @@ echo -e "\033[32m开启代理\033[0m"
 cd $1
 echo -e "\033[32m进入Flutter项目目录\033[0m"
 
-if [ -e ./lib/cps_order_module.dart ]
+if [ -e ./example/lib/app_router.router.dart ]
 then
-    rm ./lib/cps_order_module.dart
+    rm ./example/lib/app_router.router.dart
     echo -e "\033[32m移除router文件\033[0m"
 else
     echo -e "\033[31m没有router文件\033[0m"
+fi
+
+if [ -e ./example/pubspec.lock ]
+then
+    rm ./example/pubspec.lock
+    echo -e "\033[32m移除pubspec.lock文件\033[0m"
+else
+    echo -e "\033[31m没有pubspec.lock文件\033[0m"
 fi
 
 if [ -e ./pubspec.lock ]
