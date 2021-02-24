@@ -36,6 +36,22 @@ else
     echo -e "\033[31m没有pubspec.lock文件\033[0m"
 fi
 
+if [ -e ./example/ios/Podfile.lock ]
+then
+    rm ./example/ios/Podfile.lock
+    echo -e "\033[32m移除Podfile.lock文件\033[0m"
+else
+    echo -e "\033[31m没有Podfile.lock文件\033[0m"
+fi
+
+if [ -d ./example/ios/Pods ]
+then
+    rm -rf ./example/ios/Pods
+    echo -e "\033[32m移除Pods文件夹\033[0m"
+else
+    echo -e "\033[31m没有Pods文件夹\033[0m"
+fi
+
 echo -e "\033[32m开始拉取Flutter最新资源\033[0m"
 flutter pub get &&
 echo -e "\033[32m拉取Flutter最新资源成功\033[0m"
